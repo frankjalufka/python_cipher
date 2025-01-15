@@ -1,6 +1,6 @@
 def main():
-    text = 'mrttaqrhknsw ih puggrur'
-    custom_key = 'happycoding'
+    text = input("Enter your text to encrypt: ")
+    custom_key = input("Enter your encryption key: ")
 
     def vigenere(message, key, direction=1):
         key_index = 0
@@ -31,9 +31,10 @@ def main():
     def decrypt(message, key):
         return vigenere(message, key, -1)
 
-    print(f'\nEncrypted text: {text}')
+    encryption = encrypt(text, custom_key)
+    print(f'\nEncrypted text: {encryption}')
     print(f'Key: {custom_key}')
-    decryption = decrypt(text, custom_key)
+    decryption = decrypt(encryption, custom_key)
     print(f'\nDecrypted text: {decryption}\n')
 
 if __name__ =="__main__":
