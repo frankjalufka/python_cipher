@@ -1,6 +1,15 @@
 def main():
-    text = input("Enter your text to encrypt: ")
-    custom_key = input("Enter your encryption key: ")
+    command = input("Please enter (e)cryption or (d)ecryption: ")
+    
+    if command.lower() == 'e':
+        text = input("Enter your text to encrypt: ")
+        custom_key = input("Enter your encryption key: ")
+    elif command.lower() == 'd':
+        text = input("Enter your text to decrypt: ")
+        custom_key = input("Enter your decryption key: ")
+    else:
+        print('Please enter an "e" for encryption or a "d" for decryption.')
+    
 
     def vigenere(message, key, direction=1):
         key_index = 0
@@ -30,12 +39,14 @@ def main():
         
     def decrypt(message, key):
         return vigenere(message, key, -1)
-
-    encryption = encrypt(text, custom_key)
-    print(f'\nEncrypted text: {encryption}')
-    print(f'Key: {custom_key}')
-    decryption = decrypt(encryption, custom_key)
-    print(f'\nDecrypted text: {decryption}\n')
+    if command.lower() == 'e':
+        encryption = encrypt(text, custom_key)
+        print(f'\nEncrypted text: {encryption}')
+    elif command.lower() == 'd':
+        decryption = decrypt(text, custom_key)
+        print(f'\nDecrypted text: {decryption}\n')
+    else:
+        print('Please enter an "e" for encryption or a "d" for decryption.')
 
 if __name__ =="__main__":
     main()
